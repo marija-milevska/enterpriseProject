@@ -1,0 +1,22 @@
+.first-row {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.table-search-row {
+  margin-left: 2%;
+}
+
+.table-search-input {
+  min-width: 100%;
+}
+
+.sort-by {
+  min-width: 100%;
+}
+
+.card {
+  height: 100%;
+}

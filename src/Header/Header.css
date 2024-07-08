@@ -1,0 +1,15 @@
+.header-1 {
+  background-color: #596f7c;
+  height: 2rem;
+}
+
+.header-2 {
+  background-color: #c2bfb8;
+  height: 4rem;
+  display: flex;
+}
+
+.title {
+  margin: 0;
+  margin-left: 2%;
+}
