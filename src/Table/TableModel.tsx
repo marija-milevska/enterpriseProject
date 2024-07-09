@@ -1,5 +1,10 @@
 export const columns = [
   {
+    title: "ID",
+    dataIndex: "id",
+    key: "id",
+  },
+  {
     title: "Title",
     dataIndex: "title",
     key: "title",
@@ -12,6 +17,6 @@ export const columns = [
   {
     title: "Genre",
     dataIndex: "genre",
-    key: "author",
+    key: "genre",
   },
 ];
