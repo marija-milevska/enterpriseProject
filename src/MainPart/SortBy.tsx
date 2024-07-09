@@ -11,7 +11,7 @@ const SortBy = () => {
     <Select
       className="sort-by"
       defaultValue="author"
-      style={{ width: 120 }}
+      style={{ minWidth: 150 }}
       onChange={handleChange}
       options={[
         { value: "author", label: "Alphabetically by Author Name" },

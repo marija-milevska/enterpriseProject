@@ -6,12 +6,22 @@ const Header = () => {
   const { Title } = Typography;
   return (
     <>
-      <Row>
-        <Col span={24} className="header-1"></Col>
+      <Row className="header-1">
+        <Col span={24}></Col>
       </Row>
-      <Row>
-        <Col span={24} className="header-2">
-          <Title className="title"> Enterprise League</Title>
+      <Row className="header-2">
+        <Col span={24}>
+          <Title
+            level={2}
+            style={{
+              fontSize: "24px",
+              fontStyle: "italic",
+              color: "#333",
+              marginLeft: "20px",
+            }}
+          >
+            Frontend Developer Assignment
+          </Title>
         </Col>
       </Row>
     </>

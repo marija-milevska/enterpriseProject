@@ -8,22 +8,36 @@ import "./MainPart.css";
 const MainPart = () => {
   const { Title } = Typography;
   return (
-    <Card>
-      <Row className="first-row">
-        <Col span={8} className="table-search-row">
-          <TableSearch />
+    <Card className="main-card">
+      <Row
+        gutter={[16, 16]}
+        justify="space-between"
+        align="middle"
+        className="first-row"
+      >
+        <Col xs={24} sm={12} md={12} lg={12} xl={12} xxl={12}>
+          <Title level={4} className="title">
+            List of Books
+          </Title>
         </Col>
-        <Col span={8}>
-          <SortBy />
+        <Col
+          xs={24}
+          sm={12}
+          md={12}
+          lg={12}
+          xl={12}
+          xxl={12}
+          className="flex-end"
+        >
+          <div className="flex-container">
+            <SortBy />
+            <TableSearch />
+          </div>
         </Col>
       </Row>
+
       <Row>
-        <Col span={16}>
-          <Title level={4}>List of books:</Title>
-        </Col>
-      </Row>
-      <Row>
-        <Col span={16}>
+        <Col span={24}>
           <BooksTable />
         </Col>
       </Row>

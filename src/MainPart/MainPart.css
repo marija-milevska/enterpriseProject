@@ -1,22 +1,32 @@
+.main-card {
+  margin: 20px;
+  padding: 20px;
+}
+
+.title {
+  margin-bottom: 16px;
+  font-size: 24px;
+}
+
 .first-row {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 24px;
+}
+
+.flex-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
-.table-search-row {
-  margin-left: 2%;
+@media (max-width: 767px) {
+  .flex-container {
+    flex-direction: column;
+    align-items: flex-end;
+  }
 }
 
-.table-search-input {
-  min-width: 100%;
-}
-
-.sort-by {
-  min-width: 100%;
-}
-
-.card {
-  height: 100%;
+@media (min-width: 768px) {
+  .flex-end {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
