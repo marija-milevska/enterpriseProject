@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Col, Row, Typography } from "antd";
+import { Card, Col, Empty, Row, Typography } from "antd";
 import BooksTable from "../Table/Table.tsx";
 import TableSearch from "./TableSearch.tsx";
 import SortBy from "./SortBy.tsx";
@@ -12,6 +12,7 @@ const MainPart = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [sortOption, setSortOption] = useState("author");
   const [sortedBooks, setSortedBooks] = useState<Book[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,7 +23,17 @@ const MainPart = () => {
   }, []);
 
   useEffect(() => {
-    const sortedData = [...books].sort((a, b) => {
+    let filteredBooks = [...books];
+    if (searchQuery) {
+      filteredBooks = filteredBooks.filter(
+        (book) =>
+          book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          book.author.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          book.genre.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    const sortedData = [...filteredBooks].sort((a, b) => {
       if (sortOption === "title") {
         return a.title.localeCompare(b.title);
       } else if (sortOption === "author") {
@@ -33,7 +44,7 @@ const MainPart = () => {
       return 0;
     });
     setSortedBooks(sortedData);
-  }, [sortOption, books]);
+  }, [sortOption, books, searchQuery]);
 
   return (
     <Card className="main-card">
@@ -59,14 +70,18 @@ const MainPart = () => {
         >
           <div className="flex-container">
             <SortBy setSortOption={setSortOption} />
-            <TableSearch />
+            <TableSearch onSearch={setSearchQuery} />
           </div>
         </Col>
       </Row>
 
       <Row>
         <Col span={24}>
-          <BooksTable books={sortedBooks} />
+          {sortedBooks.length > 0 ? (
+            <BooksTable books={sortedBooks} />
+          ) : (
+            <Empty description="No results found" />
+          )}
         </Col>
       </Row>
     </Card>
