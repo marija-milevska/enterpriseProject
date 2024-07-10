@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Col, Row, Typography } from "antd";
 import BooksTable from "../Table/Table.tsx";
 import TableSearch from "./TableSearch.tsx";
 import SortBy from "./SortBy.tsx";
 import "./MainPart.css";
+import { fetchBooksData } from "../Table/Table.utils.tsx";
 
 const MainPart = () => {
   const { Title } = Typography;
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const booksData = await fetchBooksData();
+      setBooks(booksData);
+    };
+    fetchData();
+  }, []);
+
   return (
     <Card className="main-card">
       <Row
@@ -38,7 +49,7 @@ const MainPart = () => {
 
       <Row>
         <Col span={24}>
-          <BooksTable />
+          <BooksTable books={books} />
         </Col>
       </Row>
     </Card>
