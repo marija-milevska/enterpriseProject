@@ -2,9 +2,9 @@ import { Select } from "antd";
 import React from "react";
 import "./MainPart.css";
 
-const SortBy = () => {
+const SortBy = ({ setSortOption }) => {
   const handleChange = (value: string) => {
-    console.log(`selected ${value}`);
+    setSortOption(value);
   };
 
   return (

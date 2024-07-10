@@ -1,3 +1,10 @@
+export interface Book {
+  id: number;
+  title: string;
+  author: string;
+  genre: string;
+}
+
 export const fetchBooksData = async () => {
   try {
     const response = await fetch(

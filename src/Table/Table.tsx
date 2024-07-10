@@ -2,13 +2,7 @@ import React from "react";
 import { Table } from "antd";
 import { columns } from "./TableModel.tsx";
 import "./Table.css";
-
-interface Book {
-  id: number;
-  author: string;
-  title: string;
-  genre: string;
-}
+import { Book } from "./Table.utils.tsx";
 
 interface BooksTableProps {
   books: Book[];

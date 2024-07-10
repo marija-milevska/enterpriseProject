@@ -5,10 +5,13 @@ import TableSearch from "./TableSearch.tsx";
 import SortBy from "./SortBy.tsx";
 import "./MainPart.css";
 import { fetchBooksData } from "../Table/Table.utils.tsx";
+import { Book } from "../Table/Table.utils.tsx";
 
 const MainPart = () => {
   const { Title } = Typography;
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState<Book[]>([]);
+  const [sortOption, setSortOption] = useState("author");
+  const [sortedBooks, setSortedBooks] = useState<Book[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,6 +20,20 @@ const MainPart = () => {
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const sortedData = [...books].sort((a, b) => {
+      if (sortOption === "title") {
+        return a.title.localeCompare(b.title);
+      } else if (sortOption === "author") {
+        return a.author.localeCompare(b.author);
+      } else if (sortOption === "genre") {
+        return a.genre.localeCompare(b.genre);
+      }
+      return 0;
+    });
+    setSortedBooks(sortedData);
+  }, [sortOption, books]);
 
   return (
     <Card className="main-card">
@@ -41,7 +58,7 @@ const MainPart = () => {
           className="flex-end"
         >
           <div className="flex-container">
-            <SortBy />
+            <SortBy setSortOption={setSortOption} />
             <TableSearch />
           </div>
         </Col>
@@ -49,7 +66,7 @@ const MainPart = () => {
 
       <Row>
         <Col span={24}>
-          <BooksTable books={books} />
+          <BooksTable books={sortedBooks} />
         </Col>
       </Row>
     </Card>
