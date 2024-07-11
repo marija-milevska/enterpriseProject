@@ -1,32 +1,21 @@
 import { Space } from "antd";
 import Search from "antd/es/input/Search";
-import React, { useState } from "react";
+import React from "react";
 import "./MainPart.scss";
 
-const TableSearch = ({ onSearch }) => {
-  const [query, setQuery] = useState("");
+interface TableSearchProps {
+  onSearch: (value: string) => void;
+}
 
-  const handleSearch = (value) => {
-    setQuery(value);
-    onSearch(value);
-  };
-
-  const handleChange = (e) => {
-    const { value } = e.target;
-    setQuery(value);
+const TableSearch: React.FC<TableSearchProps> = ({ onSearch }) => {
+  const handleSearch = (value: string) => {
     onSearch(value);
   };
 
   return (
     <div>
       <Space.Compact>
-        <Search
-          allowClear
-          placeholder="Search"
-          value={query}
-          onChange={handleChange}
-          onSearch={handleSearch}
-        />
+        <Search allowClear placeholder="Search" onSearch={handleSearch} />
       </Space.Compact>
     </div>
   );
