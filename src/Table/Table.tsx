@@ -39,7 +39,16 @@ const BooksTable: React.FC<BooksTableProps> = ({ books, searchQuery }) => {
     render: (text) => getHighlightedText(text, searchQuery),
   }));
 
-  return <Table columns={boldColumns} className="table" dataSource={books} />;
+  return (
+    <Table
+      columns={boldColumns}
+      className="table"
+      dataSource={books.map((book) => ({
+        ...book,
+        key: book.id,
+      }))}
+    />
+  );
 };
 
 export default BooksTable;
