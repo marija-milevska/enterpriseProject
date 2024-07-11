@@ -78,7 +78,7 @@ const MainPart = () => {
       <Row>
         <Col span={24}>
           {sortedBooks.length > 0 ? (
-            <BooksTable books={sortedBooks} />
+            <BooksTable books={sortedBooks} searchQuery={searchQuery} />
           ) : (
             <Empty description="No results found" />
           )}
