@@ -1,0 +1,27 @@
+$primary-color: #333;
+$underline-color: #ffcc00;
+
+.top-header-row {
+  background-color: #596f7c;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.bottom-header-row {
+  background-color: #c2bfb8;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.bottom-header-title-span {
+  font-size: 24px;
+  font-style: italic;
+  color: $primary-color;
+  margin-left: 20px;
+
+  &:hover {
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  }
+}

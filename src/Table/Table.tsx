@@ -1,7 +1,7 @@
 import React from "react";
 import { Table } from "antd";
 import { columns } from "./TableModel.tsx";
-import "./Table.css";
+import "./Table.scss";
 import { Book } from "./Table.utils.tsx";
 
 interface BooksTableProps {
@@ -23,7 +23,7 @@ const BooksTable: React.FC<BooksTableProps> = ({ books, searchQuery }) => {
           .split(regex)
           .map((part, index) =>
             regex.test(part) ? (
-              <span key={index} style={{ fontWeight: "bold", color: "red" }}>
+              <span key={index} className="text-selection">
                 {part}
               </span>
             ) : (

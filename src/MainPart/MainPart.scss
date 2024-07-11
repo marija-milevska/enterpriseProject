@@ -1,0 +1,40 @@
+.main-card {
+  margin: 20px;
+  padding: 20px;
+
+  .title {
+    margin-bottom: 16px;
+    font-size: 24px;
+    position: relative;
+    cursor: pointer;
+    transition: text-shadow 0.3s ease;
+
+    &:hover {
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .first-row {
+    margin-bottom: 24px;
+  }
+
+  .flex-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+  }
+
+  @media (max-width: 767px) {
+    .flex-container {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .flex-end {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

@@ -3,7 +3,7 @@ import { Card, Col, Empty, Row, Typography } from "antd";
 import BooksTable from "../Table/Table.tsx";
 import TableSearch from "./TableSearch.tsx";
 import SortBy from "./SortBy.tsx";
-import "./MainPart.css";
+import "./MainPart.scss";
 import { fetchBooksData } from "../Table/Table.utils.tsx";
 import { Book } from "../Table/Table.utils.tsx";
 
@@ -56,7 +56,7 @@ const MainPart = () => {
       >
         <Col xs={24} sm={12} md={12} lg={12} xl={12} xxl={12}>
           <Title level={4} className="title">
-            List of Books
+            <span> List of Books</span>
           </Title>
         </Col>
         <Col

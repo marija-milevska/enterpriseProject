@@ -1,6 +1,6 @@
 import { Select } from "antd";
 import React from "react";
-import "./MainPart.css";
+import "./MainPart.scss";
 
 const SortBy = ({ setSortOption }) => {
   const handleChange = (value: string) => {
@@ -14,9 +14,9 @@ const SortBy = ({ setSortOption }) => {
       style={{ minWidth: 150 }}
       onChange={handleChange}
       options={[
-        { value: "author", label: "Alphabetically by Author Name" },
-        { value: "title", label: "Alphabetically by Title" },
-        { value: "genre", label: "Alphabetically by Genre" },
+        { value: "author", label: "Sort by Author Name" },
+        { value: "title", label: "Sort by Title" },
+        { value: "genre", label: "Sort by Genre" },
       ]}
     />
   );

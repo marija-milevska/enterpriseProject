@@ -1,7 +1,7 @@
 import { Space } from "antd";
 import Search from "antd/es/input/Search";
 import React, { useState } from "react";
-import "./MainPart.css";
+import "./MainPart.scss";
 
 const TableSearch = ({ onSearch }) => {
   const [query, setQuery] = useState("");
